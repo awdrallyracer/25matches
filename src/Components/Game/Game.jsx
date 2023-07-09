@@ -11,6 +11,8 @@ const Game = () => {
     const [turnClicked, setTurnClicked] = useState(false);
     const [selectedMatches, setSelectedMatches] = useState(0);
     const [isGameOver, setIsGameOver] = useState(false);
+    const [playerCount, setPlayerCount] = useState(0);
+    const [AICount, setAICount] = useState(0);
 
     const choosePlayerFirst = () => {
         setTurn("Player");
@@ -25,6 +27,7 @@ const Game = () => {
     const handlePlayerTurn = (numOfMatches) => {
         const updatedCount = count - numOfMatches;
         setCount(updatedCount);
+        setPlayerCount(playerCount + numOfMatches);
         setSelectedMatches(numOfMatches);
         setTurn("AI");
         checkGameEnd(updatedCount);
@@ -48,11 +51,15 @@ const Game = () => {
                 </div>
             )}
             {turn === "Player" || "AI" && !isGameOver ? (
-                <>
+                <div>
                     <div className={s.counter}>Count: {count}</div>
+                    <div className={s.counters}>
+                        <span className={s.playerCounter}> Player: {playerCount}</span>
+                        <span className={s.aiCounter}> AI: {AICount}</span>
+                    </div>
                     <div className={s.matchBox}>Matches</div>
                     <div className={s.insideMatchBox}>
-                        {Array.from({ length: count }, (index) => (
+                        {Array.from({ length: count }, (key, index) => (
                             <Match key={index} />
                         ))}
                     </div>
@@ -65,10 +72,10 @@ const Game = () => {
                         </div>
                     )}
                     {count === 0 && (<button onClick={handlePlayerTurn(0)} className={s.playerButton}>Check result</button>)}
-                    {turn === "AI" && <AI setTurn={setTurn} setCount={setCount} count={count} checkGameEnd={checkGameEnd} />}
-                </>
+                    {turn === "AI" && <AI setTurn={setTurn} setCount={setCount} count={count} checkGameEnd={checkGameEnd} setAICount={setAICount} AICount={AICount} />}
+                </div>
             ) : (
-                <Result count={count} />
+                <Result playerCount={playerCount} AICount={AICount} />
             )}
         </div>
     );

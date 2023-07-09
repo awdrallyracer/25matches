@@ -46,6 +46,7 @@
     from {
         top: -100px;
     }
+
     to {
         top: 0;
     }
@@ -65,4 +66,17 @@
 .playerButton:hover {
     color: grey;
     background-color: rgb(21, 19, 19);
+}
+
+.counters {
+    font-size: 2vh;
+    text-shadow: 0px 1px 0px rgb(180, 180, 180);
+}
+
+.playerCounter{
+    margin-right: 43vh;
+}
+
+.aiCounter{
+    margin-left: 43vh;
 }

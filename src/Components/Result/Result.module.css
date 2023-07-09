@@ -1,10 +1,17 @@
 .status {
+    margin-top: 3vh;
     color: black;
-    font-size: 4vh;
+    font-size: 3.5vh;
     font-weight: bold;
 }
 
 .winner {
     color: black;
     font-size: 3vh;
+}
+
+.result{
+    margin-top: 3vh;
+    color: black;
+    font-size: 2vh;
 }
