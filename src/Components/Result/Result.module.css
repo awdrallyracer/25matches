@@ -1,0 +1,10 @@
+.status {
+    color: black;
+    font-size: 4vh;
+    font-weight: bold;
+}
+
+.winner {
+    color: black;
+    font-size: 3vh;
+}

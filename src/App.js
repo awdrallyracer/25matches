@@ -1,10 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
+import Game from './Components/Game/Game';
 
 function App() {
   return (
     <div className="App">
-      <div>The game with pile of 25 matches</div>
+      <div className="Name">The game with pile of 25 matches</div>
+      <Game />
     </div>
   );
 }
